@@ -1,0 +1,17 @@
+{
+  "name": "redux-runtypes-schema",
+  "description": "Redux Schema demo",
+  "scripts": {
+    "build": "rollup -c",
+    "prestart": "npm run build",
+    "start": "node lib",
+    "watch": "rollup -c --watch"
+  },
+  "dependencies": {
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "rollup": "^0.49.3",
+    "rollup-plugin-typescript": "^0.8.1",
+    "runtypes": "^0.12.0"
+  }
+}
