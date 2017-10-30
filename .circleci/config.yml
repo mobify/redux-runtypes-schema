@@ -32,9 +32,9 @@ jobs:
       - run: yarn test
 
       - deploy:
-        command: |
-          if [ "${CIRCLE_BRANCH}" == "master" ]; then
-            # NPM login based on env variables
-            echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
-            npm publish
-          fi
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              # NPM login based on env variables
+              echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
+              npm publish
+            fi
