@@ -40,3 +40,18 @@ const store = createStore(reducer)
 
 // TODO: Launch app (render react app with <Provider store={store}>
 ```
+
+## Contributing
+
+Begin by installing npm dependencies:
+
+```sh
+$ npm install
+```
+
+### Running tests
+
+Run tests by executing `npm test` on the command line. You can start
+[jest](https://facebook.github.io/jest/) (the testing tool) in "watch" mode so
+that you can edit and save and have jest automatically re-run the tests by
+executing `npm run test:watch`.
