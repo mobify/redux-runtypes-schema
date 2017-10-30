@@ -20,14 +20,11 @@
     "prepack": "npm run build && npm test"
   },
   "dependencies": {
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
     "rollup": "^0.49.3",
     "rollup-plugin-typescript": "^0.8.1",
     "runtypes": "^0.12.0"
   },
   "devDependencies": {
-    "@types/jest": "^21.1.5",
     "jest": "^21.2.1",
     "ts-jest": "^21.1.4"
   },
