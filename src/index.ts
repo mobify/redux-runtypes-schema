@@ -1,27 +1,21 @@
-import {createStore, combineReducers} from 'redux'
-import reducers from './reducers'
-import schemaReducer from './schema-reducer'
-import Schema from './schema'
+/**
+ * Creates a new reducer that type-checks the given reducer's resulting state
+ * against the given schema.
+ * @param schema a `runtypes` object definition
+ * @param reducer the reducer to wrap
+ */
+const createSchemaReducer = (schema, reducer) => {
+    if (!schema.check) {
+        throw new TypeError('\'schema\' passed to schema reducer isn\'t an instance of a runtypes object.')
+    }
 
-const reducer = schemaReducer(
-    Schema,
-    combineReducers(reducers)
-)
+    return (currentState, action) => {
+        const state = reducer(currentState, action)
 
-const store = createStore(reducer)
+        schema.check(state)
 
-console.log('1', store.getState())
+        return state
+    }
+}
 
-store.dispatch({
-    type: 'AA',
-    payload: { a: 'zzz' }
-})
-
-console.log('2', store.getState())
-
-store.dispatch({
-    type: 'BB',
-    payload: { b: {} }
-})
-
-console.log('3', store.getState())
+export default createSchemaReducer

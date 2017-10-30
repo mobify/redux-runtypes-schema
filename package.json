@@ -1,11 +1,15 @@
 {
   "name": "redux-runtypes-schema",
-  "description": "Redux Schema demo",
+  "description": "Validates your Redux store against a runtypes type definition",
+  "version": "0.1.0",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "rollup -c",
-    "prestart": "npm run build",
-    "start": "node lib",
-    "watch": "rollup -c --watch"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "prepack": "npm run build && npm test"
   },
   "dependencies": {
     "redux": "^3.7.2",
@@ -13,5 +17,26 @@
     "rollup": "^0.49.3",
     "rollup-plugin-typescript": "^0.8.1",
     "runtypes": "^0.12.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^21.1.5",
+    "jest": "^21.2.1",
+    "ts-jest": "^21.1.4"
+  },
+  "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.[jt]s?(x)",
+      "**/?(*.)(spec|test).[jt]s?(x)"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
   }
 }
