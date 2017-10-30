@@ -5,7 +5,7 @@
   "files": [
     "lib"
   ],
-  "license": "See LICENSE in LICENSE",
+  "license": "See license in LICENSE",
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
