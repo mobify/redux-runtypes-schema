@@ -1,12 +1,12 @@
 # Redux Schema via Runtypes
 
 ```
-.______    _______  _______   __    __  ___   ___     _______.  ______  __    __   _______ .___  ___.      ___
-|   _  \  |   ____||       \ |  |  |  | \  \ /  /    /       | /      ||  |  |  | |   ____||   \/   |     /   \
-|  |_)  | |  |__   |  .--.  ||  |  |  |  \  V  /    |   (----`|  ,----'|  |__|  | |  |__   |  \  /  |    /  ^  \
-|      /  |   __|  |  |  |  ||  |  |  |   >   <      \   \    |  |     |   __   | |   __|  |  |\/|  |   /  /_\  \
-|  |\  \-.|  |____ |  '--'  ||  `--'  |  /  .  \   .--)   |   |  `----.|  |  |  | |  |____ |  |  |  |  /  _____  \
-| _| `.__||_______||_______/  \______/  /__/ \__\  |_____/     \______||__|  |__| |_______||__|  |__| /__/     \__\
+.______    _______  _______   __    __  ___   ___     _____.  ______  __    __   _______ .___  ___.      ___
+|   _  \  |   ____||       \ |  |  |  | \  \ /  /    /     | /      ||  |  |  | |   ____||   \/   |     /   \
+|  |_)  | |  |__   |  .--.  ||  |  |  |  \  V  /    |   (--`|  ,----'|  |__|  | |  |__   |  \  /  |    /  ^  \
+|      /  |   __|  |  |  |  ||  |  |  |   >   <      \   \  |  |     |   __   | |   __|  |  |\/|  |   /  /_\  \
+|  |\  \-.|  |____ |  '--'  ||  `--'  |  /  .  \   .--)   | |  `----.|  |  |  | |  |____ |  |  |  |  /  _____  \
+| _| `.__||_______||_______/  \______/  /__/ \__\  |_____/   \______||__|  |__| |_______||__|  |__| /__/     \__\
 
 ```
 
@@ -107,17 +107,3 @@ $ npm run test:watch
 This will start jest and watch for file changes. Any time you change a file
 and save it, jest will automatically re-run affected tests. This is a very
 efficient way to develop changes/bugfixes for the library.
-
-## Deployment
-
-`redux-runtypes-schema` is managed by Mobify's Mobitron bot. Releases are
-started by messaging @mobitron in Slack. @mobitron creates a release branch from
-`develop`, updates the version numbers, and merges to `master`.
-
-Once that is done, a CircleCI build will run and push the updated code to npm.
-
-### Starting a release
-
-Message @mobitron in Slack. `@mobitron release redux-runtypes-schema
-minor|patch`. Choose between `minor` and `patch` when doing the release.
-Releases should follow [semver](semver.org).
