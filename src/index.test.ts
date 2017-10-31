@@ -20,11 +20,11 @@ describe('When reducing an action', () => {
     test('it should return the reduced state unchanged when state doesn\'t match the schema', () => {
         const initialState = 5
 
-        const reducer = (state, action) => (state + action)
+        const reducer = (state, action) => (state + action.payload)
 
         const schemaReducer = createSchemaReducer(Runtypes.Number, reducer)
 
-        expect(schemaReducer(initialState, 0)).toBe(initialState)
+        expect(schemaReducer(initialState, {type: 'ADD', payload: 0})).toBe(initialState)
     })
 
     test('it should throw when the reduced state doesn\'t match the schema', () => {

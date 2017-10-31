@@ -1,5 +1,7 @@
 interface Action {
-    type: string
+    type: string,
+    payload: any,
+    [x: string]: any // Accepts _any_ other properties
 }
 
 type State = any
