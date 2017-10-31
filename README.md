@@ -1,13 +1,13 @@
 # Redux Schema via Runtypes
 
 ```
-.______       _______  _______   __    __  ___   ___         _______.  ______  __    __   _______ .___  ___.      ___      
-|   _  \     |   ____||       \ |  |  |  | \  \ /  /        /       | /      ||  |  |  | |   ____||   \/   |     /   \     
-|  |_)  |    |  |__   |  .--.  ||  |  |  |  \  V  /        |   (----`|  ,----'|  |__|  | |  |__   |  \  /  |    /  ^  \    
-|      /     |   __|  |  |  |  ||  |  |  |   >   <          \   \    |  |     |   __   | |   __|  |  |\/|  |   /  /_\  \   
-|  |\  \----.|  |____ |  '--'  ||  `--'  |  /  .  \     .----)   |   |  `----.|  |  |  | |  |____ |  |  |  |  /  _____  \  
-| _| `._____||_______||_______/  \______/  /__/ \__\    |_______/     \______||__|  |__| |_______||__|  |__| /__/     \__\ 
-                                                                                                                           
+.______    _______  _______   __    __  ___   ___     _______.  ______  __    __   _______ .___  ___.      ___
+|   _  \  |   ____||       \ |  |  |  | \  \ /  /    /       | /      ||  |  |  | |   ____||   \/   |     /   \
+|  |_)  | |  |__   |  .--.  ||  |  |  |  \  V  /    |   (----`|  ,----'|  |__|  | |  |__   |  \  /  |    /  ^  \
+|      /  |   __|  |  |  |  ||  |  |  |   >   <      \   \    |  |     |   __   | |   __|  |  |\/|  |   /  /_\  \
+|  |\  \-.|  |____ |  '--'  ||  `--'  |  /  .  \   .--)   |   |  `----.|  |  |  | |  |____ |  |  |  |  /  _____  \
+| _| `.__||_______||_______/  \______/  /__/ \__\  |_____/     \______||__|  |__| |_______||__|  |__| /__/     \__\
+
 ```
 
 [![NPM](https://nodei.co/npm/redux-runtypes-schema.png?downloads=true&stars=true)](https://nodei.co/npm/redux-runtypes-schema/)
@@ -35,9 +35,19 @@ validation as a final step. This means that if you dispatch an action and the
 reducer modifies the store in a way that doesn't match your intended schema,
 you'll get a validation warning in your console.
 
+## Requirements
+
+* node v8+
+* npm v3+
+
+## Owner
+
+`redux-runtypes-schema` is an open source library developed by
+[Mobify](www.mobify.com).
+
 ## Usage
 
-Using `redux-runtypes-schema` is as easy as passing your root reducer and
+Using `redux-runtypes-schema` is as easy as passing the root reducer and
 a runtype definition to the `createSchemaReducer` function and using
 that to create your Redux store.
 
@@ -46,7 +56,7 @@ import createSchemaReducer from 'redux-runtypes-schema'
 import Runtypes from 'runtypes'
 
 const Schema = Runtypes.Record({
-    // Schema defined here using runtypes records and types
+    // Schema defined here using the runtypes library
 })
 
 // Set up project reducer(s)
@@ -67,7 +77,9 @@ const store = createStore(reducer)
 
 ## Developing
 
-Begin by installing npm dependencies:
+### Setup
+
+First, get set up to build, test, and run the library:
 
 ```sh
 $ npm install
@@ -75,7 +87,7 @@ $ npm install
 
 `redux-runtypes-schema` is written using TypeScript and built using Rollup.
 These are both new technologies to Mobify and would be considered to be in
-the "evaluate" stage of a "technology radar".
+the "evaluate" stage of a "technology radar" a la [ThoughtWorks](https://www.thoughtworks.com/radar)..
 
 ### Running tests
 
@@ -95,11 +107,6 @@ $ npm run test:watch
 This will start jest and watch for file changes. Any time you change a file
 and save it, jest will automatically re-run affected tests. This is a very
 efficient way to develop changes/bugfixes for the library.
-
-### Pull Requests
-
-This project is hosted on Github. Use the Pull Request feature to contribute
-changes back to this project (we 💖 community contributions).
 
 ## Deployment
 
