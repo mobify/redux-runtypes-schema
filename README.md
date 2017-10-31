@@ -4,6 +4,9 @@ This library provides a reducer that allows you to verify your entire Redux
 store against a known schema defined using the
 [runtypes](https://github.com/pelotom/runtypes) library.
 
+Inspiration for this library is based on the article [*Redux and JSON Schema 
+- Two great tastes that go great together](https://blog.prismatik.com.au/redux-and-json-schema-c63368931143)
+
 A common issue with Redux is understanding what your stores schema is (or should
 be) as your application grows. Running the app and inspecting the store using
 the Redux dev tools is great for development but is not foolproof as different
