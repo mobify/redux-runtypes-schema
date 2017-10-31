@@ -8,11 +8,12 @@
     "typecheck"
   ],
   "homepage": "https://github.com/mobify/redux-runtypes-schema",
-  "version": "0.1.1",
+  "version": "0.1.2",
+  "license": "SEE LICENSE IN LICENSE",
   "files": [
     "lib"
   ],
-  "license": "SEE LICENSE IN LICENSE",
+  "main": "lib/index.js",
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
