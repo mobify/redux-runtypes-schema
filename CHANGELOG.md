@@ -1,3 +1,7 @@
+## To be released
+- Changed license to MIT
+- Added type declaration file
+
 ## v0.1.2 (October 31, 2017)
 - Set `lib/index.js` as `main` in package.json
 
