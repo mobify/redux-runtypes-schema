@@ -26,7 +26,6 @@
   },
   "devDependencies": {
     "@types/flux-standard-action": "^0.5.31",
-    "@types/redux-actions": "^2.2.2",
     "jest": "^21.2.1",
     "redux": "^3.7.2",
     "rollup": "^0.50.0",
