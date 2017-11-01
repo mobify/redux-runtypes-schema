@@ -1,4 +1,4 @@
-## To be released
+## v0.1.3 (November 1, 2017)
 - Changed license to MIT
 - Added type declaration file
 
