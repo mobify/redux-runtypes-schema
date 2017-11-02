@@ -22,6 +22,7 @@
     "prepack": "npm run build && npm test"
   },
   "dependencies": {
+    "@types/jest": "^21.1.5",
     "runtypes": "^0.12.0"
   },
   "devDependencies": {

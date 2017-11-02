@@ -20,7 +20,6 @@ describe('When creating the reducer', () => {
 })
 
 describe('When reducing an action', () => {
-
     test('it should return the reduced state unchanged when state doesn\'t match the schema', () => {
         const initialState = 5
 
@@ -40,4 +39,29 @@ describe('When reducing an action', () => {
 
         expect(() => schemaReducer(initialState, 0)).toThrow()
     })
+
+    test('it should snapshot state if the `snapshotState` option is `true`', () => {
+        let statePassedToSchema
+
+        const Schema = {
+            check: (state) => {
+                statePassedToSchema = state
+            }
+        }
+
+        // Note that we don't mutate state here. All we're interested in
+        // in this test is that the state we schema check is not the same
+        // as our initial or final state.
+        const reducer = (state, action) => state
+
+        const initialState = {stuff: {name: 'Fred', age: 22}}
+
+        const schemaReducer = createSchemaReducer(Schema, reducer, {snapshotState: true})
+
+        const finalState = schemaReducer(initialState, {type: 'CHANGE_NAME'})
+
+        expect(statePassedToSchema).not.toBe(initialState)
+        expect(statePassedToSchema).not.toBe(finalState)
+    })
 })
+
