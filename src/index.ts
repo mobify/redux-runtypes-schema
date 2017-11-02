@@ -2,7 +2,7 @@
 /* Copyright (c) 2017 Mobify Research & Development Inc. All rights reserved. */
 /* * *  *  * *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  * */
 
-import {Action, Reducer} from 'redux'
+import {AnyAction, Reducer} from 'redux'
 
 export type State = any
 
@@ -20,7 +20,7 @@ export interface CreateSchemaOptions {
      * The runtypes library currently only understands plain
      * javascript objects.
      */
-    snapshotState: Boolean
+    snapshotState?: Boolean
 }
 
 /**
@@ -29,12 +29,12 @@ export interface CreateSchemaOptions {
  * @param schema a `runtypes` object definition
  * @param reducer the reducer to wrap
  */
-const createSchemaReducer = (schema: Runtype, reducer: Reducer<State>, options: CreateSchemaOptions) => {
+const createSchemaReducer = (schema: Runtype, reducer: Reducer<State>, options: CreateSchemaOptions = {}) => {
     if (!schema.check) {
         throw new TypeError('\'schema\' passed to schema reducer isn\'t an instance of a runtypes object.')
     }
 
-    return (currentState: State, action: Action): State => {
+    return (currentState: State, action: AnyAction): State => {
         const state = reducer(currentState, action)
 
         const stateToValidate = options.snapshotState
