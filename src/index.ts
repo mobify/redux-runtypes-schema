@@ -2,12 +2,25 @@
 /* Copyright (c) 2017 Mobify Research & Development Inc. All rights reserved. */
 /* * *  *  * *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  * */
 
-import {Action, Reducer} from 'redux'
+import {AnyAction, Reducer} from 'redux'
 
 export type State = any
 
 export interface Runtype {
     check: (state: State) => void
+}
+
+export interface CreateSchemaOptions {
+    /**
+     * Causes schema validation to JSON serialize/deserialize
+     * the state before schema validation. This is useful if
+     * the final state is composed of non-standard javascript
+     * objects (such as Immutable.js).
+     *
+     * The runtypes library currently only understands plain
+     * javascript objects.
+     */
+    snapshotState?: Boolean
 }
 
 /**
@@ -16,15 +29,19 @@ export interface Runtype {
  * @param schema a `runtypes` object definition
  * @param reducer the reducer to wrap
  */
-const createSchemaReducer = (schema: Runtype, reducer: Reducer<State>) => {
+const createSchemaReducer = (schema: Runtype, reducer: Reducer<State>, options: CreateSchemaOptions = {}) => {
     if (!schema.check) {
         throw new TypeError('\'schema\' passed to schema reducer isn\'t an instance of a runtypes object.')
     }
 
-    return (currentState: State, action: Action): State => {
+    return (currentState: State, action: AnyAction): State => {
         const state = reducer(currentState, action)
 
-        schema.check(state)
+        const stateToValidate = options.snapshotState
+            ? JSON.parse(JSON.stringify(state))
+            : state
+
+        schema.check(stateToValidate)
 
         return state
     }

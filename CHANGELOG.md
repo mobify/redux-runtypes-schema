@@ -1,3 +1,6 @@
+## v0.1.4 (November 3, 2017)
+- Support validating state that contain non-standard JS objects (such as Immutable.js)
+
 ## v0.1.3 (November 1, 2017)
 - Changed license to MIT
 - Added type declaration file
