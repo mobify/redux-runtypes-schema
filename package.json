@@ -10,6 +10,10 @@
   "homepage": "https://github.com/mobify/redux-runtypes-schema",
   "version": "0.1.4",
   "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mobify/redux-runtypes-schema"
+  },
   "files": [
     "lib"
   ],
