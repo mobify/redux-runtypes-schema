@@ -1,3 +1,6 @@
+## To be released
+- Add option to suppress throwing on validation errors (default == `false`)
+
 ## v0.1.4 (November 3, 2017)
 - Support validating state that contain non-standard JS objects (such as Immutable.js)
 

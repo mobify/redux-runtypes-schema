@@ -20,7 +20,14 @@ export interface CreateSchemaOptions {
      * The runtypes library currently only understands plain
      * javascript objects.
      */
-    snapshotState?: Boolean
+    snapshotState?: Boolean,
+    /**
+     * Controls whether `redux-runtypes-schema` throws when
+     * runtype validation fails.
+     * If `false` the error is still logged using `console.warn`
+     * but no Error is thrown.
+     */
+    throwOnValidationFailure?: Boolean
 }
 
 /**
@@ -41,7 +48,14 @@ const createSchemaReducer = (schema: Runtype, reducer: Reducer<State>, options: 
             ? JSON.parse(JSON.stringify(state))
             : state
 
-        schema.check(stateToValidate)
+        try {
+            schema.check(stateToValidate)
+        } catch (e) {
+            console.error('Schema error while validating Redux state', e)
+            if (options.throwOnValidationFailure) {
+                throw(e)
+            }
+        }
 
         return state
     }
