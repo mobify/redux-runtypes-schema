@@ -35,9 +35,19 @@ describe('When reducing an action', () => {
 
         const reducer = (state, action) => 'invalid state'
 
-        const schemaReducer = createSchemaReducer(Runtypes.Number, reducer)
+        const schemaReducer = createSchemaReducer(Runtypes.Number, reducer, {throwOnValidationFailure: true})
 
         expect(() => schemaReducer(initialState, 0)).toThrow()
+    })
+
+    test('it should _not_ throw when the reduced state doesn\'t match the schema but `throwOnValidationFailure` is `false`', () => {
+        const initialState = 5
+
+        const reducer = (state, action) => 'invalid state'
+
+        const schemaReducer = createSchemaReducer(Runtypes.Number, reducer, {throwOnValidationFailure: false})
+
+        expect(() => schemaReducer(initialState, 0)).not.toThrow()
     })
 
     test('it should snapshot state if the `snapshotState` option is `true`', () => {
@@ -63,5 +73,6 @@ describe('When reducing an action', () => {
         expect(statePassedToSchema).not.toBe(initialState)
         expect(statePassedToSchema).not.toBe(finalState)
     })
+
 })
 
